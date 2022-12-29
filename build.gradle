@@ -1,0 +1,47 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.1'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.cos'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//runtimeOnly 'com.microsoft.sqlserver:mssql-jdbc'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	
+	// https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
+	implementation group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '9.2.1.jre8'
+	
+	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-taglibs
+	//implementation group: 'org.springframework.security', name: 'spring-security-taglibs', version: '5.8.1'
+	
+	//JSP를 위한 gradle 추가
+	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	// https://mvnrepository.com/artifact/javax.servlet/jstl
+	implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

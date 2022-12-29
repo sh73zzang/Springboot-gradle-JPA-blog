@@ -1,0 +1,12 @@
+# 컨트롤러에서 호출할 뷰 페이지 경로
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: jsp
+
+  datasource: 
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://192.168.20.31:1433;databaseName=ssamplusVer2
+    username: sa
+    password: edm!365
